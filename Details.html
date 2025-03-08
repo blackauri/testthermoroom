@@ -1,19 +1,20 @@
 <!DOCTYPE HTML>
-<!--
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 
 <head>
-	<title>Hyperspace by HTML5 UP</title>
+	<title>Thermoroom | Windows</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+	<style>
+		img {
+			margin-left: 200px;
+		}
+	</style>
 </head>
 
 <body class="is-preload">
@@ -35,24 +36,13 @@
 
 		<!-- Intro -->
 		<section id="intro" class="wrapper style1 fullscreen fade-up">
-			<div class="inner">
-				<img id="1img" src="../main1.png">
-				<img id="2img" src="../main2.png">
-				<img id="3img" src="../main3.png">
-				<img id="4img" src="../main4.png">
-			</div>
-		</section>
-	</div>
 
-	<!-- Footer -->
-	<footer id="footer" class="wrapper style1-alt">
-		<div class="inner">
-			<ul class="menu">
-				<li>&copy; Untitled. All rights reserved.</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</div>
-	</footer>
+			<img id="1img" src="1.jpg">
+			<img id="2img" src="2.jpg">
+
+		</section>
+
+	</div>
 
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
@@ -62,11 +52,11 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
+
 	<script>
 		let img1 = document.getElementById("1img");
 		let img2 = document.getElementById("2img");
-		let img3 = document.getElementById("3img");
-		let img4 = document.getElementById("4img");
 		let limit = 400;
 		let maxWidth = 1315;
 
@@ -78,14 +68,10 @@
 
 			img1.style.width = (width - limit) + "px";
 			img2.style.width = (width - limit) + "px";
-			img3.style.width = (width - limit) + "px";
-			img4.style.width = (width - limit) + "px";
 
 			if (marginLeft > 0) {
 				img1.style.marginLeft = (marginLeft / 2) + 'px';
 				img2.style.marginLeft = (marginLeft / 2) + 'px';
-				img3.style.marginLeft = (marginLeft / 2) + 'px';
-				img4.style.marginLeft = (marginLeft / 2) + 'px';
 				console.log(marginLeft);
 			}
 		});
@@ -95,17 +81,12 @@
 			let width = document.getElementById("intro").offsetWidth;
 			let marginLeft = width - maxWidth;
 			width = width > maxWidth ? maxWidth : width;
-
 			img1.style.width = (width - limit) + "px";
 			img2.style.width = (width - limit) + "px";
-			img3.style.width = (width - limit) + "px";
-			img4.style.width = (width - limit) + "px";
 
 			if (marginLeft > 0) {
 				img1.style.marginLeft = (marginLeft / 2) + 'px';
 				img2.style.marginLeft = (marginLeft / 2) + 'px';
-				img3.style.marginLeft = (marginLeft / 2) + 'px';
-				img4.style.marginLeft = (marginLeft / 2) + 'px';
 				console.log(marginLeft);
 			}
 		});
