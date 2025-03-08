@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>Thermoroom | Windows</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+	<style>
+	</style>
+</head>
+
+<body class="is-preload">
+
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="Windows.html">Windows</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Intro -->
+		<section id="intro" class="wrapper style1 fullscreen fade-up">
+
+			<iframe id="items-frame" src="Items.html" title="Embedded Page"></iframe>
+
+
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+	<script>
+		let iframe = document.getElementById("items-frame");
+
+		document.addEventListener("DOMContentLoaded", function () {
+			let heightMax = document.getElementById("intro").offsetHeight;
+			iframe.style.height = heightMax + "px";
+		});
+
+		window.addEventListener("resize", function () {
+			let heightMax = document.getElementById("intro").offsetHeight;
+			iframe.style.height = heightMax + "px";
+		});
+
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive 3x3 Image Grid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            max-width: 90%;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            max-width: 440px;
+            max-height: 610px;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <!-- Generate 9 images dynamically -->
+        <script>
+            const gallery = document.querySelector('.gallery-container');
+            for (let i = 1; i <= 9; i++) {
+                let div = document.createElement('div');
+                div.className = 'gallery-item';
+                div.innerHTML = `<img onclick="openDetails()" src="windows/${i}.png" alt="Random Image ${i}" loading="lazy">`;
+                gallery.appendChild(div);
+            }
+        </script>
+    </div>
+
+<script>
+    function openDetails(){
+        window.open('Details.html', '_blank');
+    }
+</script>
+
+</body>
+</html>

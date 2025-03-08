@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Hyperspace by HTML5 UP</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="Windows.html">Windows</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Intro -->
+		<section id="intro" class="wrapper style1 fullscreen fade-up">
+			<div class="inner">
+				<img id="1img" src="../main1.png">
+				<img id="2img" src="../main2.png">
+				<img id="3img" src="../main3.png">
+				<img id="4img" src="../main4.png">
+			</div>
+		</section>
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer" class="wrapper style1-alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; Untitled. All rights reserved.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script>
+		let img1 = document.getElementById("1img");
+		let img2 = document.getElementById("2img");
+		let img3 = document.getElementById("3img");
+		let img4 = document.getElementById("4img");
+		let limit = 400;
+		let maxWidth = 1315;
+
+
+		document.addEventListener("DOMContentLoaded", function () {
+			let width = document.getElementById("intro").offsetWidth;
+			let marginLeft = width - maxWidth;
+			width = width > maxWidth ? maxWidth : width;
+
+			img1.style.width = (width - limit) + "px";
+			img2.style.width = (width - limit) + "px";
+			img3.style.width = (width - limit) + "px";
+			img4.style.width = (width - limit) + "px";
+
+			if (marginLeft > 0) {
+				img1.style.marginLeft = (marginLeft / 2) + 'px';
+				img2.style.marginLeft = (marginLeft / 2) + 'px';
+				img3.style.marginLeft = (marginLeft / 2) + 'px';
+				img4.style.marginLeft = (marginLeft / 2) + 'px';
+				console.log(marginLeft);
+			}
+		});
+
+
+		window.addEventListener("resize", function () {
+			let width = document.getElementById("intro").offsetWidth;
+			let marginLeft = width - maxWidth;
+			width = width > maxWidth ? maxWidth : width;
+
+			img1.style.width = (width - limit) + "px";
+			img2.style.width = (width - limit) + "px";
+			img3.style.width = (width - limit) + "px";
+			img4.style.width = (width - limit) + "px";
+
+			if (marginLeft > 0) {
+				img1.style.marginLeft = (marginLeft / 2) + 'px';
+				img2.style.marginLeft = (marginLeft / 2) + 'px';
+				img3.style.marginLeft = (marginLeft / 2) + 'px';
+				img4.style.marginLeft = (marginLeft / 2) + 'px';
+				console.log(marginLeft);
+			}
+		});
+
+	</script>
+
+</body>
+
+</html>
