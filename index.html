@@ -11,9 +11,88 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
+
+		section {
+			text-align: center;
+			/* font-size: 3em; */
+			color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		h1 {
+			color: #040404;
+		}
+
+		#section1 {
+			background-color: white;
+		}
+
+		#section2 {
+			background-color: white;
+		}
+
+		#section3 {
+			background-color: white;
+		}
+
+		.fp-nav {
+			position: fixed;
+			top: 50%;
+			right: 20px;
+			transform: translateY(-50%);
+			z-index: 1000;
+		}
+
+		.fp-nav ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		.fp-nav li {
+			margin: 10px 0;
+		}
+
+		.fp-nav a {
+			display: block;
+			width: 10px;
+			height: 10px;
+			background: white;
+			border-radius: 50%;
+			transition: background 0.3s;
+		}
+
+		.fp-nav a.active {
+			background: #e74c3c;
+		}
+
+		.bg-image {
+			
+			
+			height: 100vh;
+			/* Full viewport height */
+			background-image: url('main1.png');
+			/* Set the background image */
+			background-size: cover;
+			/* Cover entire div */
+			background-position: center;
+			/* Center image */
+			background-repeat: no-repeat;
+			/* Prevent repeating */
+		}
+	</style>
 </head>
 
 <body class="is-preload">
@@ -24,7 +103,8 @@
 			<nav>
 				<ul>
 					<li><a href="index.html">Home</a></li>
-					<li><a href="Windows.html">Windows</a></li>
+					<li><a href="index.html">Windows</a></li>
+					<li><a href="index.html">Other</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -34,27 +114,35 @@
 	<div id="wrapper">
 
 		<!-- Intro -->
-		<section id="intro" class="wrapper style1 fullscreen fade-up">
-			<div class="inner">
-				<img id="1img" src="main1.png">
-				<img id="2img" src="main2.png">
-				<hr style="width:50%;text-align:left;margin-left:0">
-				<iframe style="width: 1500px; height: 1000px;" id="items-frame" src="Items.html" title="Embedded Page"></iframe>
-				<img id="3img" src="main3.png">
-				<img id="4img" src="main4.png">
+		<section id="intro" class="wrapper style1 fade-up">
+			<div class="inner" style="width: 100% !important;">
+				<div id="fullpage">
+					<div class="section" id="section1">
+						<div class="bg-image"></div>
+					</div>
+					<div class="section" id="section2">
+
+						<a href="Windows.html">
+							<img src="win1.png" alt="Our Windows" width="300">
+						</a>
+
+						<a href="OtherWindows.html">
+							<img src="win2.png" alt="Other Windows" width="300">
+						</a>
+
+						<a href="Calculate.html">
+							<img src="win_calc.png" alt="calculate" width="300">
+						</a>
+
+					</div>
+					<div class="section" id="section3">
+						<h1>Other Products</h1>
+					</div>
+				</div>
 			</div>
 		</section>
 	</div>
 
-	<!-- Footer -->
-	<footer id="footer" class="wrapper style1-alt">
-		<div class="inner">
-			<ul class="menu">
-				<li>&copy; Untitled. All rights reserved.</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</div>
-	</footer>
 
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
@@ -64,56 +152,32 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
 	<script>
-		let img1 = document.getElementById("1img");
-		let img2 = document.getElementById("2img");
-		let img3 = document.getElementById("3img");
-		let img4 = document.getElementById("4img");
-		let limit = 400;
-		let maxWidth = 1315;
 
+		new fullpage('#fullpage', {
+			// // Navigation
+			// menu: '#menu',
+			// anchors: ['section1', 'section2', 'section3', 'section4'],
+			// navigation: true,
+			// navigationPosition: 'right',
+			// // navigationTooltips: ['Section 1', 'Section 2', 'Section 3', 'Section 4'],
+			// showActiveTooltip: true,
+			// slidesNavigation: true,
+			// slidesNavPosition: 'bottom',
 
-		document.addEventListener("DOMContentLoaded", function () {
-			let width = document.getElementById("intro").offsetWidth;
-			let marginLeft = width - maxWidth;
-			width = width > maxWidth ? maxWidth : width;
+			// Scrolling
+			scrollingSpeed: 700,
+			autoScrolling: true,
+			fitToSection: true,
+			fitToSectionDelay: 1000,
+			scrollBar: false,
 
-			img1.style.width = (width - limit) + "px";
-			img2.style.width = (width - limit) + "px";
-			img3.style.width = (width - limit) + "px";
-			img4.style.width = (width - limit) + "px";
-
-			if (marginLeft > 0) {
-				img1.style.marginLeft = (marginLeft / 2) + 'px';
-				img2.style.marginLeft = (marginLeft / 2) + 'px';
-				img3.style.marginLeft = (marginLeft / 2) + 'px';
-				img4.style.marginLeft = (marginLeft / 2) + 'px';
-				console.log(marginLeft);
+			// Events
+			afterLoad: function (origin, destination, direction) {
+				console.log("Loaded section: " + direction + " " + destination);
 			}
 		});
-
-
-		window.addEventListener("resize", function () {
-			let width = document.getElementById("intro").offsetWidth;
-			let marginLeft = width - maxWidth;
-			width = width > maxWidth ? maxWidth : width;
-
-			img1.style.width = (width - limit) + "px";
-			img2.style.width = (width - limit) + "px";
-			img3.style.width = (width - limit) + "px";
-			img4.style.width = (width - limit) + "px";
-
-			if (marginLeft > 0) {
-				img1.style.marginLeft = (marginLeft / 2) + 'px';
-				img2.style.marginLeft = (marginLeft / 2) + 'px';
-				img3.style.marginLeft = (marginLeft / 2) + 'px';
-				img4.style.marginLeft = (marginLeft / 2) + 'px';
-				console.log(marginLeft);
-			}
-		});
-
-
-
 
 	</script>
 

@@ -1,0 +1,22 @@
+{
+  "name": "fullpage-project",
+  "version": "1.0.0",
+  "description": "A project implementing fullPage.js with bullet navigation.",
+  "main": "src/assets/js/main.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Building project...'"
+  },
+  "dependencies": {
+    "fullpage.js": "^3.1.2"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "fullpage.js",
+    "navigation",
+    "web",
+    "template"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
