@@ -1,0 +1,198 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+
+    <label>Width</label>
+    <input type="text" id="width" placeholder="Enter a number" value="3">
+    <br />
+    <label>Height</label>
+    <input type="text" id="height" placeholder="Enter a number" value="5">
+    <br />
+
+    <br /><br />
+
+    <div>
+        <input type="checkbox" id="door" name="door" value="door">
+        <label for="door"> Door</label><br>
+
+        <input type="checkbox" id="dog" name="dog" value="dog">
+        <label for="dog"> Dog Door</label><br>
+
+        <br><br>
+
+        <input type="checkbox" id="color" name="color">
+        <label for="color"> Color</label><br>
+
+        <input type="checkbox" id="grid" name="grid">
+        <label for="grid">Grid</label><br>
+
+        <input type="checkbox" id="obs" name="obs">
+        <label for="obs"> OBS</label><br>
+
+        <input type="checkbox" id="temered" name="tempered">
+        <label for="temered"> Tempered</label><br>
+
+        <input type="checkbox" id="opening" name="opening">
+        <label for="opening"> Opening</label><br>
+
+        <input type="checkbox" id="rotten" name="rotten">
+        <label for="rotten"> Rotten</label><br>
+
+        <input type="checkbox" id="extTrim" name="extTrim">
+        <label for="extTrim"> Ext trim</label><br>
+
+        <input type="checkbox" id="intTrim" name="intTrim">
+        <label for="intTrim"> Int Trim</label>
+    </div>
+
+    <br>
+
+    <label>Quantity</label>
+    <input type="text" id="quantity" placeholder="Enter a number" value="1">
+    <br><br>
+
+    <button onclick="calculatePrice()">Calculate</button>
+
+    <h2 id="sum">Sum: $0.00</h2>
+    <h2 style="color: red;" id="Discount">Discount: $0.00</h2>
+    <h2 id="total">Total: $0.00</h2>
+    
+    <p id="summary"></p>
+
+    <script>
+        var sqPrice = 0;
+        var company = 0;
+        var costs = 0;
+        var additional = 0;
+        var discountQuantity = 0;
+
+        function calculatePrice() {
+            let height = parseFloat($("#height").val());
+            let width = parseFloat($("#width").val());
+            let quantity = parseFloat($("#quantity").val());
+
+            if (isNaN(height) || isNaN(width) || isNaN(quantity)
+                || height <= 0 || width <= 0 || quantity <= 0) {
+                alert("Please enter valid numbers for height, width, and quantity.");
+                return;
+            }
+
+            arrangeCosts(quantity);
+            let sqfeet = height * width / 144 * sqPrice;
+
+            let dog = $('#dog').is(':checked') ? 500 : 0;
+            let color = $('#color').is(':checked') ? 50 : 0;
+            let grid = $('#grid').is(':checked') ? 50 : 0;
+            let obs = $('#obs').is(':checked') ? 50 : 0;
+            let temered = $('#temered').is(':checked') ? 150 : 0;
+            let opening = $('#opening').is(':checked') ? 50 : 0;
+            let rotten = $('#rotten').is(':checked') ? 50 : 0;
+            let extTrim = $('#extTrim').is(':checked') ? 50 : 0;
+            let intTrim = $('#intTrim').is(':checked') ? 50 : 0;
+
+            let unitPrice = sqfeet + company + costs
+                + additional + dog + color + grid + obs + temered + opening
+                + rotten + extTrim + intTrim;
+
+            let sum = (unitPrice * quantity).toFixed(2);
+            let discounted = (discountQuantity * unitPrice).toFixed(2);
+
+            $("#sum").text("Sum $" + sum);
+            $("#total").text(`Total  $${(sum - discounted).toFixed(2)}`);
+            $("#Discount").text(`Discount $${(discounted)}`);
+
+            let product = $('#door').is(':checked') ? "Door" : "Window"
+            let summaryOfCosts = `summary:<br> type: ${product}<br>  sqFeet: ${sqfeet.toFixed(2)} <br> sqPrice: $${sqPrice} <br> company: $${company} <br> costs: $${costs} <br> additional: $${additional}<br>`;
+
+            summaryOfCosts += `Has discount on ${discountQuantity} windows. Total discount $${discounted}`;
+
+            if ($('#dog').is(':checked')) {
+                summaryOfCosts += `Dog door $${dog}<br>`;
+            }
+            if ($('#color').is(':checked')) {
+                summaryOfCosts += `Color $${color}<br>`;
+            }
+            if ($('#grid').is(':checked')) {
+                summaryOfCosts += `Grid $${grid}<br>`;
+            }
+            if ($('#obs').is(':checked')) {
+                summaryOfCosts += `Obscure Glass $${obs}<br>`;
+            }
+            if ($('#temered').is(':checked')) {
+                summaryOfCosts += `Tempered Glass $${temered}<br>`;
+            }
+            if ($('#opening').is(':checked')) {
+                summaryOfCosts += `Opening Limit Device $${opening}<br>`;
+            }
+            if ($('#rotten').is(':checked')) {
+                summaryOfCosts += `Rotten Wood Repair $${rotten}<br>`;
+            }
+            if ($('#extTrim').is(':checked')) {
+                summaryOfCosts += `Exterior Trim $${extTrim}<br>`;
+            }
+            if ($('#intTrim').is(':checked')) {
+                summaryOfCosts += `Interior Trim $${intTrim}<br>`;
+            }
+
+            $("#summary").html(summaryOfCosts);
+        }
+
+        function arrangeCosts(quantity) {
+            if (quantity == 1) {
+                sqPrice = 17;
+                company = 600;
+                costs = 600;
+                additional = 200;
+            }
+
+            if (quantity == 2) {
+                sqPrice = 17;
+                company = 500;
+                costs = 600;
+                additional = 150;
+            }
+
+            if (quantity == 3) {
+                sqPrice = 17;
+                company = 400;
+                costs = 600;
+                additional = 100;
+            }
+
+            if (quantity >= 4) {
+                sqPrice = 1;
+                company = 600;
+                costs = 350;
+                additional = 50;
+            }
+
+            if (quantity >= 6) {
+                sqPrice = 17;
+                company = 600;
+                costs = 250;
+                additional = 50;
+            }
+
+            if (quantity >= 13) {
+                sqPrice = 17;
+                company = 600;
+                costs = 200;
+                additional = 50;
+            }
+
+            discountQuantity = Math.floor(quantity / 6)
+
+            if ($('#door').is(':checked')) {
+                sqPrice = 26;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
